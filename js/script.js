@@ -3,13 +3,15 @@ const categoriesUrl = () =>{
 fetch('https://openapi.programming-hero.com/api/news/categories')
 .then(res => res.json())
 .then(categories => updateCategories(categories.data.news_category))
+.catch(error => console.log(error))
 }
 
 // we use this function to show first 10 news by defult
 const showFirst = () =>{
     fetch(`https://openapi.programming-hero.com/api/news/category/08`)
     .then(res => res.json())
-    .then(categories => showNewsFirst(categories.data));
+    .then(categories => showNewsFirst(categories.data))
+    .catch(err => console.log(err))
 }
 // here we slice news from the array and show 10 news
 const showNewsFirst = (datas) =>{
@@ -37,7 +39,8 @@ const updateCategories = datas =>{
 const getNewsFromCatgory = (url, name)=> {
     fetch(`https://openapi.programming-hero.com/api/news/category/${url}`)
     .then(res => res.json())
-    .then(categories => updateNews(categories.data, name));
+    .then(categories => updateNews(categories.data, name))
+    .catch(error => console.log(error))
 }
 const updateNews = (datas, name) =>{
     toggleSpiner(true);
@@ -94,7 +97,8 @@ const newsShow = datas =>{
 const getNewsDetails = url =>{
     fetch(`https://openapi.programming-hero.com/api/news/${url}`)
     .then(res => res.json())
-    .then(details => showDetails(details.data[0]));
+    .then(details => showDetails(details.data[0]))
+    .catch(error => console.log(error))
 }
 
 
