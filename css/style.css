@@ -62,6 +62,10 @@ body{
         flex-wrap: nowrap;
         flex-direction: column;
     }
+    #category-list li{
+        margin: 0px 10px 5px;
+        border: none;
+    }
 }
 
 /*----------------------------- Category Section End here ------------------------------------*/
@@ -194,6 +198,18 @@ body{
 }
 
 /*----------------------------- News Section End here ------------------------------------*/
+
+
+#loading-spinner{
+    display: none;
+}
+
+
+
+
+
+/*----------------------------- loading-spinner Section End here ------------------------------------*/
+/*----------------------------- loading-spinner Section End here ------------------------------------*/
 
 
 

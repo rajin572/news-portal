@@ -49,7 +49,7 @@
             </ul>
         </section>
         <section class="container rounded py-3 category-length-section bg-white">
-            <h4 class="category-length-title"><span id="category-length-num">10</span> items found for category 
+            <h4 class="category-length-title"><span id="category-length-num">10</span> items found for category
                 <span id="category-length-name">News</span>
             </h4>
         </section>
@@ -69,16 +69,45 @@
                 <button class="trending-btn">Trending</button>
             </div>
         </section>
+        <section id="loading-spinner">
+            <div class="d-flex justify-content-center loading-spinner-div">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+        </section>
         <section class="news-Section">
             <div id="newsAdd" class="row row-cols-1  g-4 my-5 ">
                 <div class="col ">
                 </div>
             </div>
         </section>
+        <section id="openModal">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <h5 class="modal-title" id="exampleModalLabel"></h5>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                         </div>
+                         <div class="modal-body">
+                            <h6>Author Name: <span class="text-secondary" id="detailAuthorName"> </span></h6>
+                            <h6>Publish Date: <span class="text-secondary" id="detailPublishDate"> </span></h6>
+                            <h6>Views: <span class="text-secondary" id="detailView"> </span></h6>
+                            <!-- <p id="detailPublishDate"></p> -->
+                         </div>
+                         <div class="modal-footer">
+                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="py-5 border-top border-3 d-flex justify-content-center align-items-center">
-        <h4 class="text-secondary">Copyright 2021 News Portal</h4>
+        <h5 class="text-secondary">Copyright 2021 News Portal</h5>
     </footer>
 
 

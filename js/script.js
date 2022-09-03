@@ -40,8 +40,8 @@ const getNewsFromCatgory = (url, name)=> {
     .then(categories => updateNews(categories.data, name));
 }
 const updateNews = (datas, name) =>{
+    toggleSpiner(true);
     categoriesInfo(datas, name)
-    // console.log(datas);
     const newsAdd = document.getElementById('newsAdd')
     newsAdd.innerHTML =``
     newsShow(datas)
@@ -67,15 +67,16 @@ const newsShow = datas =>{
                         <div class="newsAuthor">
                             <img src="${data.author.img}" width="50px" height="50px" class="rounded-circle mx-2" alt="...">
                             <div class="newsAuthorInfo">
-                            <p class="p-0 m-0">${data.author.name}</p>
-                            <p class="p-0 m-0 text-secondary">${data.author.published_date}</p>
+                            <p class="p-0 m-0">${data.author.name ? data.author.name : 'Not available'}</p>
+                            <p class="p-0 m-0 text-secondary">${ data.author.published_date ? data.author.published_date : 'Not available'}
+                            </p>
                         </div>
                     </div>
                     <div>
-                        <i class="fa-regular fa-eye mx-2"></i>${data.total_view}
+                        <i class="fa-regular fa-eye mx-2"></i>${data.total_view ? data.total_view : 'Not available'}
                     </div>
                     <div>
-                        <button type="button" class="btn btn-primary px-3 mt-4">Details</button>
+                        <button onclick="getNewsDetails('${data._id}')" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="btn btn-primary px-3 mt-4">Details</button>
                     </div>
                 </div>
             </div>
@@ -84,10 +85,31 @@ const newsShow = datas =>{
         ` 
         newsAdd.appendChild(div)
     });
+    toggleSpiner(false)
+}
+
+// in newsShow() fuction we create an onclick function to open an modul to see more datails
+//here we create an on click function to get details from the clicked news
+//
+const getNewsDetails = url =>{
+    fetch(`https://openapi.programming-hero.com/api/news/${url}`)
+    .then(res => res.json())
+    .then(details => showDetails(details.data[0]));
 }
 
 
 
+const showDetails = data =>{
+    console.log(data);
+    const exampleModalLabel = document.getElementById('exampleModalLabel');
+    exampleModalLabel.innerText = `${data.title ? data.title : 'Not available'}`
+    const detailAuthorName = document.getElementById('detailAuthorName');
+    detailAuthorName.innerText = `${data.author.name ? data.author.name : 'Not available'}`
+    const detailPublishDate = document.getElementById('detailPublishDate');
+    detailPublishDate.innerText = `${data.author.published_date ? data.author.published_date : 'Not available'}`
+    const detailView = document.getElementById('detailView');
+    detailView.innerText = `${data.total_view ? data.total_view : 'Not available'}`
+}
 // we create this function to show the data length and catagories name on the web
 const categoriesInfo = (data, name) =>{
     const categoryLengthNum = document.getElementById('category-length-num');
@@ -101,6 +123,16 @@ const categoriesInfo = (data, name) =>{
     categoryLengthName.innerText = name;
 }
 
+// for spinner loader
+const toggleSpiner = isLoading =>{
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if(isLoading){
+        loadingSpinner.style.display = 'block'
+    }
+    else{
+        loadingSpinner.style.display = 'none'
+    }
+}
 
 categoriesUrl();
 showFirst();
