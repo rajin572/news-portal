@@ -45,20 +45,66 @@
     </header>
     <section class="container my-5">
         <div class="p-3 my-5 bg-white">
-            <h3 class="question"></h3>
-            <p class="answer"></p>
+            <h5 class="question">1) Difference between var let const</h5>
+            <span>Ans: </span>
+            <p class="answer p-3">
+                The differences between var, let, and const variable declaration in JavaScript include:
+                Variables declared with var and const are scoped to the immediate function body.
+                Variables declared with the var keyword are hoisted. Hoisting means that the variable can be accessed in
+                their enclosing scope even before they are declared.
+                Variables declared with the let keyword are block-scoped, which means the variables will have scope to
+                the immediate enclosing block.
+            </p>
         </div>
         <div class="p-3 my-5 bg-white">
-            <h3 class="question"></h3>
-            <p class="answer"></p>
+            <h5 class="question">2) Difference between arrow function and regular function</h5>
+            <p class="answer p-3">
+                <b>Syntax:</b>
+                <br>
+                The first and most obvious difference between arrow functions and regular functions is their syntax. Not only do they look different, but arrow functions also provide an implicit return shorthand and allow parenthesis around a single argument to be omitted.
+                <br>
+                <br>
+                <b>Execution context:</b>
+                <br>
+                Inside a regular function, execution context (i.e. the value of this) is dynamic. This means that the value of this depends on how the function was invoked (simple invocation, method invocation, indirect invocation or constructor invocation). On the other hand, an arrow function does not define its own execution context. This results in an arrow function's this being resolved lexically (i.e. the scope in which the arrow function was defined).
+                <br>
+                <br>
+                <b>Methods:</b>
+                <br>
+                Due to arrow functions not defining their own execution context, they're not well-suited for usage as methods. However, thanks to the Class fields proposal, arrow functions can be used as methods inside classes, if your environment supports it.
+                <br>
+                <br>
+                <b>Arguments:</b>
+                <br>
+                Another difference is the binding of the arguments object. Unlike regular functions, arrow functions don't have their own arguments object. A modern alternative that circumvents this limitation is the usage of rest parameters.
+                <br>
+                <br>
+                <b>Other differences:</b>
+                <br>
+                Finally, there are a couple of other differences that are not as important, but worth mentioning. These include the lack of a prototype property in arrow functions, as well as the fact that the yield keyword may not be used in an arrow function's body. A consequence of the latter is that arrow functions cannot be used as generators.
+                <br>
+            </p>
         </div>
         <div class="p-3 my-5 bg-white">
-            <h3 class="question"></h3>
-            <p class="answer"></p>
+            <h5 class="question">3) Difference between map(), forEach(), filter() and find()</h5>
+            <p class="answer p-3">
+                .forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.
+                <br>
+                <br>
+                .map() executes the same code on every element in an array and returns a new array with the updated elements.
+                <br>
+                <br>
+                .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
+                <br>
+                <br>
+                The find() method finds the first occurrence of the specified value. The find() method returns -1 if the value is not found
+            </p>
         </div>
         <div class="p-3 my-5 bg-white">
-            <h3 class="question"></h3>
-            <p class="answer"></p>
+            <h5 class="question">4) Why we use template string</h5>
+            <p class="answer p-3">
+                Template literals are sometimes informally called template strings, because they are used most commonly for string interpolation (to create strings by doing substitution of placeholders).
+            </p>
         </div>
     </section>
 
