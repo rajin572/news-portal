@@ -17,9 +17,9 @@
 
 <body>
     <header class="container">
-        <nav class="navbar navbar-expand-lg border-bottom border-3 py-4 bg-color">
+        <nav class=" navbar  navbar-expand-lg border-bottom border-3 py-3">
             <div class="container-fluid">
-                <a class="navbar-brand py-2 px-4" href="#"><span class="logoFirstName py-2 px-3 rounded ">Daily</span>
+                <a class="navbar-brand py-2" href="#"><span class="logoFirstName py-2 px-3 rounded ">Daily</span>
                     Hour</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -41,40 +41,45 @@
                 </div>
             </div>
         </nav>
-        <main>
-            <section class="container-fluid py-4 category-section">
-                <ul id="category-list">
-                    
-                </ul>
-            </section>
-            <section class="container rounded py-3 category-length-section bg-white">
-                <h4><span id="category-length-num">0</span> items found for category <span id="category-length-name"></span></h4>
-            </section>
-            <section class="sort-section my-5">
-                <div class="sort-default">
-                    <form action="">
-                        <label for="sort-select">Sort By View:</label>
-                        <select name="" id="sort-select">
-                            <option value="">Default</option>
-                            <option value="">New</option>
-                            <option value="">View</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="sort-btn">
-                    <button class="todays-btn">Todays Pick</button>
-                    <button class="trending-btn">Trending</button>
-                </div>
-            </section>
-            <section class="news-Section">
-                <div id="newsAdd" class="row row-cols-1  g-4 my-5 ">
-                    <div class="col ">
-                    </div>
-                </div>
-            </section>
-        </main>
     </header>
+    <main class="container">
+        <section class="container-fluid py-4 category-section">
+            <ul id="category-list">
 
+            </ul>
+        </section>
+        <section class="container rounded py-3 category-length-section bg-white">
+            <h4 class="category-length-title"><span id="category-length-num">10</span> items found for category 
+                <span id="category-length-name">News</span>
+            </h4>
+        </section>
+        <section class="sort-section my-5">
+            <div class="sort-default">
+                <form action="">
+                    <label for="sort-select">Sort By View:</label>
+                    <select name="" id="sort-select">
+                        <option value="">Default</option>
+                        <option value="">New</option>
+                        <option value="">View</option>
+                    </select>
+                </form>
+            </div>
+            <div class="sort-btn">
+                <button class="todays-btn">Todays Pick</button>
+                <button class="trending-btn">Trending</button>
+            </div>
+        </section>
+        <section class="news-Section">
+            <div id="newsAdd" class="row row-cols-1  g-4 my-5 ">
+                <div class="col ">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-5 border-top border-3 d-flex justify-content-center align-items-center">
+        <h4 class="text-secondary">Copyright 2021 News Portal</h4>
+    </footer>
 
 
 

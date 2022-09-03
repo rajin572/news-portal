@@ -1,6 +1,10 @@
 body{
     background-color: rgba(246, 246, 246, 1);
 }
+
+/*----------------------------- Navbar Section start here ------------------------------------*/
+
+
 .logoFirstName{
     background-color: #5D5FEF;
     color: white;
@@ -13,7 +17,26 @@ body{
     margin: 0px 10px;
 }
 
-/* Category Section */
+@media screen and (min-width: 000px) and (max-width: 500px) {
+    .navbar-brand{
+        font-size: 15px;
+    }
+    .navbar-toggler{
+        font-size: 15px;
+    }
+
+}
+
+/*----------------------------- Navbar Section End here ------------------------------------*/
+
+
+
+
+
+
+
+/*----------------------------- Category Section start here ------------------------------------*/
+
 #category-list{
     display:flex;
     flex-wrap: wrap;
@@ -24,20 +47,66 @@ body{
 #category-list li{
     list-style: none;
     padding: 5px 15px;
-    margin: 0px 10px 0px;
+    margin: 0px 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    border: 1px solid #5D5FEF;
     color: #858585;
 }
 #category-list li:hover{
     background-color: rgba(93, 95, 239, 0.2);
     color: #5D5FEF;
 }
+@media screen and (min-width: 000px) and (max-width: 768px) {
+    #category-list{
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+}
+
+/*----------------------------- Category Section End here ------------------------------------*/
 
 
 
 
-/* sort-section */
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------- category-length-section start here ------------------------------------*/
+
+@media screen and (min-width: 000px) and (max-width: 768px) {
+    .category-length-title{
+        font-size: 15px;
+    }
+}
+
+/*----------------------------- category-length-section End here ------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------- Sort Section start here ------------------------------------*/
+
+
+
 .sort-section{
     display: flex;
     justify-content: space-between;
@@ -69,8 +138,20 @@ body{
     color: #5D5FEF;
 }
 
+@media screen and (min-width: 000px) and (max-width: 500px) {
+    .sort-section{
+        display: none;
+    }
+}
 
-/* news-Section" */
+/*----------------------------- Sort Section End here ------------------------------------*/
+
+
+
+
+
+
+/*----------------------------- News Section start here ------------------------------------*/
 
 .newsDetails{
     display: flex;
@@ -82,3 +163,49 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (min-width: 000px) and (max-width: 500px) {
+    .newsDetails{
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .newsAuthor{
+        margin: 20px 0px;
+    }
+}
+@media screen and (min-width: 000px) and (max-width: 375px) {
+    .newsDetails{
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .newsAuthor{
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 20px 0px;
+    }
+    .card-body h5{
+        font-size: 15px;
+    }
+    .card-body p{
+        font-size: 12px;
+    }
+}
+
+/*----------------------------- News Section End here ------------------------------------*/
+
+
+
+
+
+/*----------------------------- Footer Section Start here ------------------------------------*/
+
+footer{
+    margin-top: 400px;
+    background-color: white;
+}
+
+
+
+/*----------------------------- Footer Section End here ------------------------------------*/
