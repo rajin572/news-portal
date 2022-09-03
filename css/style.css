@@ -12,3 +12,26 @@ body{
 .nav-item{
     margin: 0px 10px;
 }
+
+/* Category Section */
+/* #category-section ul{
+
+} */
+#category-list{
+    display:flex;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px;
+}
+#category-list li{
+    list-style: none;
+    padding: 5px 15px;
+    margin: 0px 10px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #858585;
+}
+#category-list li:hover{
+    background-color: rgba(93, 95, 239, 0.2);
+    color: #5D5FEF;
+}
