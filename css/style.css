@@ -16,6 +16,7 @@ body{
 /* Category Section */
 #category-list{
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 0px;
     padding: 0px;
@@ -78,5 +79,6 @@ body{
 }
 .newsAuthor{
     display: flex;
+    justify-content: center;
     align-items: center;
 }

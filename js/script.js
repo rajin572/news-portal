@@ -34,24 +34,27 @@ const updateNews = (datas, name) =>{
         div.innerHTML=`
         <div class="card shadow-sm p-2">
         <div class="row g-2">
-            <div class="col-12 col-md-2">
+            <div class="col-12 col-md-3">
                 <img src="${data.image_url}" class="w-100 h-100" alt="...">
             </div>
-            <div class="col-12 col-md-10">
+            <div class="col-12 col-md-9">
                 <div class="card-body">
                     <h5 class="card-title mb-3">${data.title}</h5>
                     <p class="card-text text-secondary mb-5">${data.details.slice(0,200)}</p>
                     <p class="card-text text-secondary mb-5">${data.details.slice(0,250)}...</p>
                     <div class="newsDetails">
-                         <div class="newsAuthor">
-                            <img src="${data.author.img}" alt="...">
+                        <div class="newsAuthor">
+                            <img src="${data.author.img}" width="50px" height="50px" class="rounded-circle mx-2" alt="...">
                             <div class="newsAuthorInfo">
-                            <h3>${data.author.name}</h3>
-                            <p>${data.author.published_date}</p>
-                            </div>
-                         </div>
-                         <div></div>
-                         <div></div>
+                            <p class="p-0 m-0">${data.author.name}</p>
+                            <p class="p-0 m-0 text-secondary">${data.author.published_date}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa-regular fa-eye mx-2"></i>${data.total_view}
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary px-3 py-1 d-block mt-4">Details</button></div>
                     </div>
                 </div>
             </div>
