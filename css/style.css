@@ -1,0 +1,14 @@
+body{
+    background-color: rgba(246, 246, 246, 1);
+}
+.logoFirstName{
+    background-color: #5D5FEF;
+    color: white;
+}
+.bg-color,.navbar-brand,.navbar-brand:hover, .navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #5D5FEF;
+}
+.nav-item{
+    margin: 0px 10px;
+}
