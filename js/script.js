@@ -15,8 +15,10 @@ const showFirst = () =>{
 }
 // here we slice news from the array and show 10 news
 const showNewsFirst = (datas) =>{
+    console.log(datas);
     const newsAdd = document.getElementById('newsAdd')
     const data =  datas.slice(15 ,25);
+    data.sort((firstItem, secondItem) => secondItem.total_view - firstItem.total_view);
     newsAdd.innerHTML =``
     newsShow(data)
 }
@@ -46,6 +48,7 @@ const updateNews = (datas, name) =>{
     toggleSpiner(true);
     categoriesInfo(datas, name)
     const newsAdd = document.getElementById('newsAdd')
+    datas.sort((firstItem, secondItem) => secondItem.total_view - firstItem.total_view);
     newsAdd.innerHTML =``
     newsShow(datas)
 }
