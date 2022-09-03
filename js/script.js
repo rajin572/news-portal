@@ -15,7 +15,6 @@ const showFirst = () =>{
 }
 // here we slice news from the array and show 10 news
 const showNewsFirst = (datas) =>{
-    console.log(datas);
     const newsAdd = document.getElementById('newsAdd')
     const data =  datas.slice(15 ,25);
     data.sort((firstItem, secondItem) => secondItem.total_view - firstItem.total_view);
@@ -96,7 +95,6 @@ const newsShow = datas =>{
 
 // in newsShow() fuction we create an onclick function to open an modul to see more datails
 //here we create an on click function to get details from the clicked news
-//
 const getNewsDetails = url =>{
     fetch(`https://openapi.programming-hero.com/api/news/${url}`)
     .then(res => res.json())
@@ -107,7 +105,6 @@ const getNewsDetails = url =>{
 
 
 const showDetails = data =>{
-    console.log(data);
     const detailTitle = document.getElementById('detailTitle');
     detailTitle.innerText = `${data.title ? data.title : 'Not available'}`
     const detailAuthorName = document.getElementById('detailAuthorName');
