@@ -101,8 +101,8 @@ const getNewsDetails = url =>{
 
 const showDetails = data =>{
     console.log(data);
-    const exampleModalLabel = document.getElementById('exampleModalLabel');
-    exampleModalLabel.innerText = `${data.title ? data.title : 'Not available'}`
+    const detailTitle = document.getElementById('detailTitle');
+    detailTitle.innerText = `${data.title ? data.title : 'Not available'}`
     const detailAuthorName = document.getElementById('detailAuthorName');
     detailAuthorName.innerText = `${data.author.name ? data.author.name : 'Not available'}`
     const detailPublishDate = document.getElementById('detailPublishDate');
