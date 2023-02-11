@@ -1,34 +1,41 @@
 // by call this function we get categories name
-const categoriesUrl = () =>{
-fetch('https://openapi.programming-hero.com/api/news/categories')
-.then(res => res.json())
-.then(categories => updateCategories(categories.data.news_category))
-.catch(error => console.log(error))
+const categoriesUrl = () => {
+    fetch('https://openapi.programming-hero.com/api/news/categories')
+        .then(res => res.json())
+        .then(categories => updateCategories(categories.data.news_category))
+        .catch(error => console.log(error))
 }
 
 // we use this function to show first 10 news by defult
-const showFirst = () =>{
+const showFirst = () => {
     fetch(`https://openapi.programming-hero.com/api/news/category/08`)
-    .then(res => res.json())
-    .then(categories => showNewsFirst(categories.data))
-    .catch(err => console.log(err))
+        .then(res => res.json())
+        .then(categories => showNewsFirst(categories.data, name))
+        .catch(err => console.log(err))
 }
 // here we slice news from the array and show 10 news
-const showNewsFirst = (datas) =>{
+const showNewsFirst = (datas, name) => {
+    toggleSpiner(true);
     const newsAdd = document.getElementById('newsAdd')
-    const data =  datas.slice(15 ,25);
+    const data = [];
+    for (const dataForConditon of datas) {
+        if (dataForConditon.others_info.is_trending === true) {
+            data.push(dataForConditon)
+        }
+    }
+    categoriesInfo(data, name)
     data.sort((firstItem, secondItem) => secondItem.total_view - firstItem.total_view);
-    newsAdd.innerHTML =``
+    newsAdd.innerHTML = ``
     newsShow(data)
 }
 // we use this to show all categories name in the website
-const updateCategories = datas =>{
+const updateCategories = datas => {
     const categoryList = document.getElementById('category-list');
     datas.forEach(data => {
         const li = document.createElement('li');
         const newliAtr = document.createAttribute('onclick');
         //here we create an on click function to get data from the clicked categories
-        newliAtr.value = `getNewsFromCatgory('${data.category_id}', '${data.category_name}')` 
+        newliAtr.value = `getNewsFromCatgory('${data.category_id}', '${data.category_name}')`
         li.setAttributeNode(newliAtr)
         li.innerText = `${data.category_name}`;
         categoryList.appendChild(li)
@@ -37,27 +44,27 @@ const updateCategories = datas =>{
 
 
 // in previous function we create an onclick fnuction and here in this function we use it to show data from selected categories 
-const getNewsFromCatgory = (url, name)=> {
+const getNewsFromCatgory = (url, name) => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${url}`)
-    .then(res => res.json())
-    .then(categories => updateNews(categories.data, name))
-    .catch(error => console.log(error))
+        .then(res => res.json())
+        .then(categories => updateNews(categories.data, name))
+        .catch(error => console.log(error))
 }
-const updateNews = (datas, name) =>{
+const updateNews = (datas, name) => {
     toggleSpiner(true);
     categoriesInfo(datas, name)
     const newsAdd = document.getElementById('newsAdd')
     datas.sort((firstItem, secondItem) => secondItem.total_view - firstItem.total_view);
-    newsAdd.innerHTML =``
+    newsAdd.innerHTML = ``
     newsShow(datas)
 }
 
 // we create this function for DRY code and we use it to show news on website [we use it into the showNewsFirst() and updateNews() function]
-const newsShow = datas =>{
+const newsShow = datas => {
     datas.forEach(data => {
         const div = document.createElement('div');
         div.classList.add('col')
-        div.innerHTML=`
+        div.innerHTML = `
         <div class="card shadow-sm p-2">
         <div class="row g-2">
             <div class="col-12 col-md-4">
@@ -81,13 +88,13 @@ const newsShow = datas =>{
                         <i class="fa-regular fa-eye mx-2"></i>${data.total_view ? data.total_view : 'Not available'}
                     </div>
                     <div>
-                        <button onclick="getNewsDetails('${data._id}')" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="btn btn-primary px-3 mt-4">Details</button>
+                        <button onclick="getNewsDetails('${data._id}')" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="btn btn-primary px-3 mt-4">Author Details</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        ` 
+        `
         newsAdd.appendChild(div)
     });
     toggleSpiner(false)
@@ -95,16 +102,17 @@ const newsShow = datas =>{
 
 // in newsShow() fuction we create an onclick function to open an modul to see more datails
 //here we create an on click function to get details from the clicked news
-const getNewsDetails = url =>{
+const getNewsDetails = url => {
     fetch(`https://openapi.programming-hero.com/api/news/${url}`)
-    .then(res => res.json())
-    .then(details => showDetails(details.data[0]))
-    .catch(error => console.log(error))
+        .then(res => res.json())
+        .then(details => showDetails(details.data[0]))
+        .catch(error => console.log(error))
 }
 
 
 
-const showDetails = data =>{
+const showDetails = data => {
+    console.log(data);
     const detailTitle = document.getElementById('detailTitle');
     detailTitle.innerText = `${data.title ? data.title : 'Not available'}`
     const detailAuthorName = document.getElementById('detailAuthorName');
@@ -112,15 +120,18 @@ const showDetails = data =>{
     const detailPublishDate = document.getElementById('detailPublishDate');
     detailPublishDate.innerText = `${data.author.published_date ? data.author.published_date : 'Not available'}`
     const detailView = document.getElementById('detailView');
-    detailView.innerText = `${data.total_view ? data.total_view : 'Not available'}`
+    detailView.innerText = `${data.total_view ? data.total_view : 'Not available'}`;
+    const forImg = document.getElementById('for-img');
+    forImg.innerHTML = `
+    <img src="${data.author.img}" class=" d-block w-50 mx-auto" alt="">
+    `
 }
 // we create this function to show the data length and catagories name on the web
-const categoriesInfo = (data, name) =>{
+const categoriesInfo = (data, name) => {
     const categoryLengthNum = document.getElementById('category-length-num');
-    if(data.length > 0){
+    if (data.length > 0) {
         categoryLengthNum.innerText = data.length;
-    }
-    else{
+    } else {
         categoryLengthNum.innerText = 'No';
     }
     const categoryLengthName = document.getElementById('category-length-name');
@@ -128,12 +139,11 @@ const categoriesInfo = (data, name) =>{
 }
 
 // for spinner loader
-const toggleSpiner = isLoading =>{
+const toggleSpiner = isLoading => {
     const loadingSpinner = document.getElementById('loading-spinner');
-    if(isLoading){
+    if (isLoading) {
         loadingSpinner.style.display = 'block'
-    }
-    else{
+    } else {
         loadingSpinner.style.display = 'none'
     }
 }
