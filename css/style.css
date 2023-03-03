@@ -1,227 +1,178 @@
-body{
-    background-color: rgba(246, 246, 246, 1);
+body {
+  background-color: rgba(246, 246, 246, 1);
 }
 
 /*----------------------------- Navbar Section start here ------------------------------------*/
 
-
-.logoFirstName{
-    background-color: #5D5FEF;
-    color: white;
+.logoFirstName {
+  background-color: #5d5fef;
+  color: white;
 }
-.bg-color,.navbar-brand,.navbar-brand:hover, .navbar-nav .nav-link.active {
-    font-weight: bold;
-    color: #5D5FEF;
+.bg-color,
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  color: #5d5fef;
 }
-.nav-item{
-    margin: 0px 10px;
+.nav-item {
+  margin: 0px 10px;
 }
 
 @media screen and (min-width: 000px) and (max-width: 500px) {
-    .navbar-brand{
-        font-size: 15px;
-    }
-    .navbar-toggler{
-        font-size: 15px;
-    }
-
+  .navbar-brand {
+    font-size: 15px;
+  }
+  .navbar-toggler {
+    font-size: 15px;
+  }
 }
 
 /*----------------------------- Navbar Section End here ------------------------------------*/
 
-
-
-
-
-
-
 /*----------------------------- Category Section start here ------------------------------------*/
 
-#category-list{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0px;
-    padding: 0px;
+#category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 0px;
 }
-#category-list li{
-    list-style: none;
-    padding: 5px 15px;
-    margin: 0px 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #5D5FEF;
-    color: #858585;
+#category-list li {
+  list-style: none;
+  padding: 5px 15px;
+  margin: 0px 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #5d5fef;
+  color: #858585;
 }
-#category-list li:hover{
-    background-color: rgba(93, 95, 239, 0.2);
-    color: #5D5FEF;
+#category-list li:hover {
+  background-color: rgba(93, 95, 239, 0.2);
+  color: #5d5fef;
 }
 @media screen and (min-width: 000px) and (max-width: 768px) {
-    #category-list{
-        flex-wrap: nowrap;
-        flex-direction: column;
-    }
-    #category-list li{
-        margin: 0px 10px 5px;
-        border: none;
-    }
+  #category-list {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  #category-list li {
+    margin: 0px 10px 5px;
+    border: none;
+  }
 }
 
 /*----------------------------- Category Section End here ------------------------------------*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*----------------------------- category-length-section start here ------------------------------------*/
 
 @media screen and (min-width: 000px) and (max-width: 768px) {
-    .category-length-title{
-        font-size: 15px;
-    }
+  .category-length-title {
+    font-size: 15px;
+  }
 }
 
 /*----------------------------- category-length-section End here ------------------------------------*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*----------------------------- Sort Section start here ------------------------------------*/
 
-
-
-.sort-section{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.sort-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.todays-btn, .trending-btn{
-    padding: 5px 15px;
-    margin:0px 10px;
-    border: 1px solid #5D5FEF;
-    border-radius: 5px;
+.todays-btn,
+.trending-btn {
+  padding: 5px 15px;
+  margin: 0px 10px;
+  border: 1px solid #5d5fef;
+  border-radius: 5px;
 }
-#sort-select{
-    background-color: white;
-    color: #ABADC6;
-    padding: 8px 15px;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    margin: 0px 10px;
-    cursor: pointer;
+#sort-select {
+  background-color: white;
+  color: #abadc6;
+  padding: 8px 15px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin: 0px 10px;
+  cursor: pointer;
 }
-.todays-btn{
-    background-color: #5D5FEF;
-    color: white;
+.todays-btn {
+  background-color: #5d5fef;
+  color: white;
 }
-.trending-btn{
-    background-color: white;
-    color: #5D5FEF;
+.trending-btn {
+  background-color: white;
+  color: #5d5fef;
 }
 
 @media screen and (min-width: 000px) and (max-width: 500px) {
-    .sort-section{
-        display: none;
-    }
+  .sort-section {
+    display: none;
+  }
 }
 
 /*----------------------------- Sort Section End here ------------------------------------*/
 
-
-
-
-
-
 /*----------------------------- News Section start here ------------------------------------*/
 
-.newsDetails{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.newsDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.newsAuthor{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.newsAuthor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 000px) and (max-width: 500px) {
-    .newsDetails{
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    .newsAuthor{
-        margin: 20px 0px;
-    }
+  .newsDetails {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .newsAuthor {
+    margin: 20px 0px;
+  }
 }
 @media screen and (min-width: 000px) and (max-width: 375px) {
-    .newsDetails{
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    .newsAuthor{
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 20px 0px;
-    }
-    .card-body h5{
-        font-size: 15px;
-    }
-    .card-body p{
-        font-size: 12px;
-    }
+  .newsDetails {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .newsAuthor {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0px;
+  }
+  .card-body h5 {
+    font-size: 15px;
+  }
+  .card-body p {
+    font-size: 12px;
+  }
 }
 
 /*----------------------------- News Section End here ------------------------------------*/
 
-
-#loading-spinner{
-    display: none;
+#loading-spinner {
+  display: none;
 }
 
-
-
-
-
 /*----------------------------- loading-spinner Section End here ------------------------------------*/
 /*----------------------------- loading-spinner Section End here ------------------------------------*/
-
-
-
-
 
 /*----------------------------- Footer Section Start here ------------------------------------*/
 
-footer{
-    margin-top: 400px;
-    background-color: white;
+footer {
+  margin-top: 400px;
+  background-color: white;
 }
-
-
 
 /*----------------------------- Footer Section End here -------------------------------------*/
